@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+<!-- Page Title -->
+{% block title %}User Pageَ{% endblock %}
+
+<!-- Page's Content-->
+{% block content %}
+    {% if usernames|length %}
+    {# Variable is not empty #}
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for username in usernames %}
+                <tr>
+                    <td>{{ username.id }}</td>
+                    <td>{{ username.username }}</td>
+                    <td>{{ username.email }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Sorry, no users are available at this time</p>
+    {% endif %}
+{% endblock %}
